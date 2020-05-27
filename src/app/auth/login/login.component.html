@@ -1,0 +1,122 @@
+<!-- 
+
+  <mat-card class="ins">
+
+    <img src="../assets/banner_bg.jpg">
+
+
+  </mat-card>
+  <mat-card>
+    <h1> Login Form</h1>
+
+    <mat-spinner *ngIf= "isLoading"> </mat-spinner>
+
+    <form (submit)="onLogin(loginForm)" #loginForm='ngForm' *ngIf="!isLoading">
+      <mat-form-field>
+        <input
+         matInput
+         name="email"
+         ngModel
+        type="email"
+        placeholder= "E-Mail" #emailInput='ngModel' required email>
+        <mat-error *ngIf="emailInput.invalid">Please enter a valid email</mat-error>
+
+      </mat-form-field>
+
+      <mat-form-field>
+        <input type="password"
+        name="password"
+        ngModel
+         matInput placeholder="Password"
+         #passwordInput='ngModel' required>
+         <mat-error *ngIf="passwordInput.invalid">Please enter a valid password</mat-error>
+
+      </mat-form-field>
+      <button
+      mat-raised-button
+      color="primary"
+      type="submit" *ngIf="!isLoading">Login </button >
+      <span>
+        you don't have an account?
+        <a [routerLink]="['/signup']">register now</a>
+      </span>
+
+
+
+    </form>
+
+
+  </mat-card> -->
+<div class="container">
+  <div class="row">
+    <br>
+  </div>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-12">
+              <h4>Your Profile</h4>
+              <hr />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <form (submit)="onLogin(loginForm)" #loginForm="ngForm">
+                <div class="form-group row">
+                  <label for="name" class="col-4 col-form-label">Email</label>
+                  <div class="col-8">
+                    <input
+                      name="email"
+                      ngModel
+                      type="email"
+                      placeholder="E-Mail"
+                      #emailInput="ngModel"
+                      id="name"
+                      class="form-control here"
+                    />
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="lastname" class="col-4 col-form-label"
+                    >Password</label
+                  >
+                  <div class="col-8">
+                    <input
+                      type="password"
+                      name="password"
+                      ngModel
+                      matInput
+                      placeholder="Password"
+                      #passwordInput="ngModel"
+                      id="lastname"
+                      class="form-control here"
+                    />
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="offset-4 col-8">
+                    <button name="submit" type="submit" class="btn btn-primary">
+                      Login
+                    </button>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="offset-4 col-8">
+                  <span>
+                      you don't have an account?
+                      <a [routerLink]="['/signup']">Sign Up Now</a>
+                    </span>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>

@@ -1,0 +1,75 @@
+<!-- <mat-toolbar color="primary">
+  <span>
+    <a routerLink="/">rooms</a>
+  </span>
+  <span class="spacer"></span>
+  <ul>
+    <li *ngIf="userIsAuthenticated">
+      <a mat-button routerLink="/home" routerLinkActive="mat-accent">home</a>
+    </li>
+    <li *ngIf="userIsAuthenticated">
+      <a mat-button routerLink="/create" routerLinkActive="mat-accent">new room</a>
+    </li>
+    <li *ngIf="!userIsAuthenticated">
+      <a mat-button routerLink="/login" routerLinkActive="mat-accent">Login</a>
+    </li>
+    <li *ngIf="!userIsAuthenticated">
+      <a mat-button routerLink="/signup" routerLinkActive="mat-accent">signup</a>
+    </li>
+    <li *ngIf="userIsAuthenticated">
+      <button mat-button (click)="onLogout()">Logout</button>
+    </li>
+  </ul>
+</mat-toolbar> -->
+<nav
+  class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark"
+  id="container"
+>
+  <a class="navbar-brand" href="#">EKREELY</a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active" >
+        <a class="nav-link" routerLink="/">
+          Home <span class="sr-only">
+          </span></a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/rooms"> Rooms</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link info" href="#" tabindex="-1" aria-disabled="true"
+          >Agents & Property Manager</a
+        >
+      </li>
+    </ul>
+
+    <div class="nav-item dropdown">
+      <a class="nav-link link-dark dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Account Name
+      </a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="#">profile</a>
+        <a class="dropdown-item" href="#">My rooms</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#">Logout</a>
+      </div>
+    </div>
+    <button id="loginbtn" routerLink="/login" class="btn btn-outline-primary my-2 my-sm-0">
+      Login / Sign Up
+    </button>
+  </div>
+</nav>
+
