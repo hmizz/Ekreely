@@ -1,19 +1,27 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+const uniqueValidator = require('mongoose-unique-validator');
 
-const userDetails = mongoose.Schema({
 
-    firstName: {type: String},
-    lastName: {type: String},
-    gender: {type: String},
-    doBirth: {type: String},
-    fromCountry: {type: String},
-    fromRegion: {type: String},
-    created_on:{type: Date},
-    modified_on: {type: Date},
-    last_accessed : {type: String},
-
-    user: { userId : mongoose.Schema.Types.ObjectId, ref: "User"}
-
+const userDetail = mongoose.Schema({
+  gender: { type: String, required: true },
+  dateOfBirth: { type: Date, required: true},
+  address: { type: String, required: true },
+  country: { type: String, required: true },
+  region: { type: String, required: true },
+  zipCode: { type: String, required: true },
+  createdOn: { type: Date, required: true },
+  modifiedOn: { type: Date, required: true },
+  lastAccessed: { type: Date, required: true },
+  user:[
+    {type: Schema.Types.ObjectId, ref: 'user'}
+  ]
 });
 
-module.exports = mongoose.model('UserDetails', userDetails);
+
+module.exports = mongoose.model('UserDetail', userDetail);
+
+
+
+
+
