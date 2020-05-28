@@ -30,6 +30,8 @@ import { HomeComponent } from './home/home.comoponent';
 import { MatIconModule } from '@angular/material/icon';
 import { LayoutModule } from '@angular/cdk/layout';
 import { FooterComponent } from './footer/footer.component';
+import { ProfileComponent } from './user-panel/profile/profile.component';
+import { MyroomsComponent } from './user-panel/myrooms/myrooms.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { FooterComponent } from './footer/footer.component';
      SignupComponent,
      ErrorComponent,
      HomeComponent,
-     FooterComponent
+     FooterComponent,
+     ProfileComponent,
+     MyroomsComponent
       ],
   imports: [
     BrowserModule,

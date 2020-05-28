@@ -49,25 +49,25 @@
       <li class="nav-item">
         <a class="nav-link" routerLink="/rooms"> Rooms</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link info" href="#" tabindex="-1" aria-disabled="true"
-          >Agents & Property Manager</a
+      <li class="nav-item" routerLink="/create">
+        <a class="nav-link info" tabindex="-1" aria-disabled="true"
+          >Be a Host</a
         >
       </li>
     </ul>
 
-    <div class="nav-item dropdown">
+    <div class="nav-item dropdown" *ngIf="userIsAuthenticated">
       <a class="nav-link link-dark dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Account Name
       </a>
       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item" href="#">profile</a>
-        <a class="dropdown-item" href="#">My rooms</a>
+        <a class="dropdown-item" href="/">profile</a>
+        <a class="dropdown-item" href="/">My rooms</a>
         <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#">Logout</a>
+        <a class="dropdown-item" (click)="onLogout()">Logout</a>
       </div>
     </div>
-    <button id="loginbtn" routerLink="/login" class="btn btn-outline-primary my-2 my-sm-0">
+    <button id="loginbtn" routerLink="/login" *ngIf="!userIsAuthenticated" class="btn btn-outline-primary my-2 my-sm-0">
       Login / Sign Up
     </button>
   </div>
