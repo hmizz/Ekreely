@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
-const User = require("./user");
+const Schema = mongoose.Schema;
+const uniqueValidator = require('mongoose-unique-validator');
 
-const userDetails = mongoose.Schema({
-  
+
+const userDetail = mongoose.Schema({
   gender: { type: String, required: true },
   dateOfBirth: { type: Date, required: true},
   address: { type: String, required: true },
@@ -12,10 +13,13 @@ const userDetails = mongoose.Schema({
   createdOn: { type: Date, required: true },
   modifiedOn: { type: Date, required: true },
   lastAccessed: { type: Date, required: true },
-  user: {type: mongoose.Schema.Types.ObjectId, ref: "User"} 
+  user:[
+    {type: Schema.Types.ObjectId, ref: 'user'}
+  ]
 });
 
-module.exports = mongoose.model('UserDetails', userDetails);
+
+module.exports = mongoose.model('UserDetail', userDetail);
 
 
 

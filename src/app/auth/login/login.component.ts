@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy, ElementRef } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from '../auth.service';
 import { Subscription } from 'rxjs';
 import { verifyHostBindings } from '@angular/compiler';
 
@@ -13,7 +13,6 @@ export class LoginComponent implements OnInit, OnDestroy {
   private authStatusSub: Subscription;
   // connect the service method to the login component
   constructor(public authService: AuthService, private elementRef: ElementRef) {}
-  
   ngOnInit() {
    this.authStatusSub = this.authService.getAuthStatusListener().subscribe(
      authStatus => {

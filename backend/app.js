@@ -2,10 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
-const roomRoutes = require('./routes/admin/room');
-const userRoutes = require('./routes/admin/user');
-const usersRoutes = require('./routes/user/users');
-const roomsRoutes = require('./routes/user/rooms');
+const adminRoutes = require('./routes/admin/admin');
+const userRoutes = require('./routes/auth/user');
 
 mongoose.connect('mongodb://localhost:27017/AppData')
   .then(() => {
@@ -26,9 +24,18 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.use("/api/room", roomRoutes);
-app.use("/api/user", userRoutes);
-app.use("/api/rooms", roomsRoutes);
-app.use("/api/users", usersRoutes);
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 module.exports = app; //exports the app and all of its properties
