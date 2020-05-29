@@ -2,16 +2,13 @@
 // service to send req to add new user
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { AuthData } from '../models/auth-data.model';
+import { AuthData } from './auth-data.model';
 import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
 
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  getID(): any {
-    throw new Error("Method not implemented.");
-  }
   constructor(private http: HttpClient, private router: Router) {}
   private isAuthenticated = false;
   private token: string;
