@@ -1,41 +1,41 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
+const express = require("express");
+const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
 
-const adminRoutes = require('./routes/admin/admin');
-const userRoutes = require('./routes/auth/user');
-
-mongoose.connect('mongodb://localhost:27017/AppData')
-  .then(() => {
-    console.log('Connected to DB!');
-  })
-  .catch(() => {
-    console.log('Failed to connect to DB');
-  });
+const roomRoutes = require('./routes/admin/room');
+const userRoutes = require('./routes/admin/user');
+const usersRoutes = require('./routes/user/user');
+const roomsRoutes = require('./routes/user/room');
 
 const app = express();
-app.use(bodyParser.json());
 
-//Allows headers
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
-  res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
+mongoose
+  .connect(
+    "mongodb+srv://Admin:azerty1234@ekreely-ss2r6.mongodb.net/test?retryWrites=true&w=majority"
+  )
+  .then(() => {
+    console.log("connected to database!");
+  })
+  .catch(() => {
+    console.log("connection failed");
+  });
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+  );
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET, POST, PATCH, PUT, DELETE, OPTIONS "
+  );
   next();
 });
 
+app.use("/api/room", roomsRoutes);
+app.use("/api/user", usersRoutes);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-module.exports = app; //exports the app and all of its properties
+module.exports = app;

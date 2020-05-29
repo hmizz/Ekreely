@@ -2,7 +2,7 @@ import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Post } from '../post.model';
 import { PostsService } from '../posts.service';
-import { AuthService } from 'src/app/auth/auth.service';
+import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-post-list',
   templateUrl: './post-List.Component.html',

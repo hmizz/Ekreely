@@ -9,15 +9,11 @@ const userDetail = mongoose.Schema({
   address: { type: String, required: true },
   country: { type: String, required: true },
   region: { type: String, required: true },
-  zipCode: { type: String, required: true },
   createdOn: { type: Date, required: true },
   modifiedOn: { type: Date, required: true },
   lastAccessed: { type: Date, required: true },
-  user:[
-    {type: Schema.Types.ObjectId, ref: 'user'}
-  ]
+  userId: {type: mongoose.Schema.Types.ObjectId, ref: 'user'}
 });
-
 
 module.exports = mongoose.model('UserDetail', userDetail);
 

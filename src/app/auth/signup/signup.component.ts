@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy, ElementRef } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../../services/auth.service';
 import { Subscription } from 'rxjs';
 
 
@@ -30,7 +30,7 @@ export class SignupComponent implements OnInit, OnDestroy {
     }
     this.isLoading = true;
     // tslint:disable-next-line: deprecation
-    this.authService.createUser(form.value.namee,
+    this.authService.createUser(form.value.fullName,
       form.value.phoneNumber,
       form.value.email,
        form.value.password);
