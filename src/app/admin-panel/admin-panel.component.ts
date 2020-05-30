@@ -7,9 +7,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminPanelComponent implements OnInit {
 
+  public selectedValue = 'default';
+
+
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
+
+  onRoomSelection() {
+    this.selectedValue = 'room';
+  }
+  onUserSelection() {
+    this.selectedValue = 'user';
+  }
+  onReset() {
+    this.selectedValue = 'default';
+  }
+
 
 }

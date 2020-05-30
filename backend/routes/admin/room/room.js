@@ -9,6 +9,7 @@ const DBRoom = require('../../../models/room');
 router.put('/edit/:id', authenticator, (req, res, next) => {
     const newRoom = new DBRoom({
         _id: req.body.id,
+        type: req.body.type,
         address: req.body.address,
         country: req.body.country,
         region: req.body.region,

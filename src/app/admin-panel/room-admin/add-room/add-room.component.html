@@ -1,0 +1,66 @@
+<form (submit)="onSubmitRoom(roomForm)" #roomForm="ngForm">
+    <div class="form-group">
+        <label for="type">Type:</label><br>
+        <input id="type" name="roomType" type="text"
+               class="form-control col-10" required ngModel>
+        <div class="invalid-feedback">
+          Please choose a type.
+        </div>
+        <label for="address">Address:</label><br>
+        <input id="address" name="roomAddress" type="text"
+               class="form-control col-10" required ngModel>
+        <div class="invalid-feedback">
+          Please choose an address.
+        </div>
+        <label for="country">Country:</label><br>
+        <input id="country" name="roomCountry" type="text"
+               class="form-control col-10" required ngModel>
+        <div class="invalid-feedback">
+          Please choose a country.
+        </div>
+        <label for="region">Region:</label><br>
+        <input id="region" name="roomRegion" type="text"
+               class="form-control col-10" required ngModel>
+        <div class="invalid-feedback">
+          Please choose a region.
+        </div>
+        <label for="zipCode">Country:</label><br>
+        <input id="zipCode" name="roomZipCode" type="number"
+               class="form-control col-10" required ngModel>
+        <div class="invalid-feedback">
+          Please choose a zipcode.
+        </div>
+        <label for="createdOn">CreatedOn:</label><br>
+        <input id="CreatedOn" name="roomCreatedOn" type="datetime"
+               class="form-control col-10" required ngModel>
+        <div class="invalid-feedback">
+          Please choose a date.
+        </div>
+        <label for="facility">Facility:</label><br>
+        <input id="facility" name="roomFacilty" type="number"
+               class="form-control col-10" required ngModel>
+        <div class="invalid-feedback">
+          Please choose a facility.
+        </div>
+        <label for="commodity">Commodity:</label><br>
+        <input id="commodity" name="roomCommodity" type="number"
+               class="form-control col-10" required ngModel>
+        <div class="invalid-feedback">
+          Please choose a commodity.
+        </div>
+        <label for="status">Status:</label><br>
+        <input id="status" name="roomStatus" type="number"
+               class="form-control col-10" required ngModel>
+        <div class="invalid-feedback">
+          Please choose a status.
+        </div>
+        <label for="host">Host:</label><br>
+        <input id="host" name="roomHost" type="string"
+               class="form-control col-10" required ngModel>
+        <div class="invalid-feedback">
+          Please choose a host.
+        </div>
+    </div>
+    
+    <button class="btn btn-default" type="submit">Submit</button>
+  </form>

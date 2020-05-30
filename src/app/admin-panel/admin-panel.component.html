@@ -1,1 +1,15 @@
-<p>admin-panel works!</p>
+<div class="container-xl bg-light rounded">
+
+    <ul *ngIf="selectedValue=='default'" class="list-group">
+      <li (click)="onRoomSelection()" class="list-group-item">Room administration</li>
+      <li (click)="onUserSelection()" class="list-group-item">User administration</li>
+    </ul>
+  
+    <div *ngIf="selectedValue=='room'">
+      <app-room-admin></app-room-admin>
+    </div>
+  
+    <br><br><br><br><br>
+    <button *ngIf="selectedValue!=='default'" (click)="onReset()" class="btn btn-gray">Back to Panel</button>
+  </div>
+  

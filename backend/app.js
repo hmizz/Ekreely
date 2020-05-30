@@ -2,8 +2,8 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
-const roomRoutes = require('./routes/admin/room');
-const userRoutes = require('./routes/admin/user');
+const roomRoutes = require('./routes/admin/room/room');
+const userRoutes = require('./routes/admin/user/user');
 const usersRoutes = require('./routes/user/user');
 const roomsRoutes = require('./routes/user/room');
 
