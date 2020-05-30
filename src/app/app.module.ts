@@ -34,6 +34,9 @@ import { MyRoomsComponent } from './userPanel/my-rooms/my-rooms.component';
 import { ProfileComponent } from './userPanel/profile/profile.component';
 import { RoomListComponent } from './rooms/room-list/room-list.component';
 import { RoomCreateComponent } from './rooms/room-create/room-create.component';
+import { AdminPanelComponent } from './admin-panel/admin-panel.component';
+import { UserAdminComponent } from './admin-panel/user-admin/user-admin.component';
+import { RoomAdminComponent } from './admin-panel/room-admin/room-admin.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +52,10 @@ import { RoomCreateComponent } from './rooms/room-create/room-create.component';
      MyRoomsComponent,
      ProfileComponent,
      RoomListComponent,
-     RoomCreateComponent
+     RoomCreateComponent,
+     AdminPanelComponent,
+     UserAdminComponent,
+     RoomAdminComponent
       ],
   imports: [
     BrowserModule,
