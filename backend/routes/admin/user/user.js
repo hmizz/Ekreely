@@ -2,8 +2,8 @@ const express = require('express');
 const router = express.Router();
 
 
-const authenticator = require('../../middleware/authenticator');
-const DBUser = require('../../models/user');
+const authenticator = require('../../../middleware/authenticator');
+const DBUser = require('../../../models/user');
 
 
 router.put('/edit/:id', authenticator, (req, res, next) => {
@@ -34,7 +34,7 @@ router.put('/edit/:id', authenticator, (req, res, next) => {
   router.get('', (req, res, next) => {
     dbArticle.find().then(data => {
       res.status(200).json({
-            //
+        userList: data
       })
     });
   });
