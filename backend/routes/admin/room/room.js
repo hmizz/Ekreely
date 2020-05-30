@@ -2,31 +2,27 @@ const express = require('express');
 const router = express.Router();
 
 
-const authenticator = require('../../middleware/authenticator');
-const DBUser = require('../../models/user');
+const authenticator = require('../../../middleware/authenticator');
+const DBRoom = require('../../../models/room');
 
 
 router.put('/edit/:id', authenticator, (req, res, next) => {
-    const newUser = new DBUser({
+    const newRoom = new DBRoom({
         _id: req.body.id,
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        emailAddress: req.body.emailAddress,
-        gender: req.body.gender,
-        dateOfBirth: req.body.dateOfBirth,
         address: req.body.address,
         country: req.body.country,
         region: req.body.region,
         zipCode: req.body.zipCode,
         createdOn: req.body.createdOn,
-        modifiedOn: req.body.modifiedOn,
-        lastAccessed: req.body.lastAccessed,
-        status: req.body.status
+        facility: req.body.facility,
+        commodity: req.body.commodity,
+        status: req.body.status,
+        owner: req.body.owner
     });
-    dbArticle.updateOne({_id: req.params.id}, newUser).then( result => {
-      console.log(result, newUser);
+    dbArticle.updateOne({_id: req.params.id}, newRoom).then( result => {
+      console.log(result, newRoom);
       res.status(200).json({ message: 'Update successful',
-        newUser});
+        newRoom});
     })
   });
   
@@ -34,7 +30,7 @@ router.put('/edit/:id', authenticator, (req, res, next) => {
   router.get('', (req, res, next) => {
     dbArticle.find().then(data => {
       res.status(200).json({
-            //
+            roomsList: data
       })
     });
   });

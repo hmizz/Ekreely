@@ -21,13 +21,14 @@ this.http.get<{message: string, rooms: any}>(
   return roomData.rooms.map(room => {
     return {
       type: room.type,
-      adress:room.adress,
+      address:room.address,
       country: room.country,
       region: room.region,
       zipCode: room.zipCode,
       createdOn: room.createdOn,
       facility: room.facility,
       commodity: room.commodity,
+      status: room.status,
       host: room.host
     };
   });
@@ -51,13 +52,14 @@ getRoom(id: string) {
  addRoom(title: string, content: string, creator: null ) {
    const room: Room = {    id: "string",
     type: "string" ,
-    adress:"string",
+    address:"string",
     country: "string",
     region: "string",
     zipCode: "string",
     createdOn: new Date(),
     facility: 0,
     commodity: 0,
+    status: 0,
     host: {hostName:"string",hostId:"string"}};
    this.http.post<{message: string, roomId: string}>('http://localhost:3000/api/rooms', room)
    .subscribe( (ResponseData) => {
@@ -72,13 +74,14 @@ getRoom(id: string) {
  updateRoom(id: string, title: string, content: string, creator= null) {
   const room: Room = {    id: "string",
     type: "string" ,
-    adress:"string",
+    address:"string",
     country: "string",
     region: "string",
     zipCode: "string",
     createdOn: new Date(),
     facility: 0,
     commodity: 0,
+    status: 0,
     host: {hostName:"string",hostId:"string"}};
   this.http
   .put('http://localhost:3000/api/rooms/' + id, room)
