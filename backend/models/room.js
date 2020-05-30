@@ -11,7 +11,9 @@ const room = mongoose.Schema({
   facility: { type: Number, default: 0 },
   commodity: { type: Number, default: 0 },
   status: { type: Number, default: 0 },
-  hostId: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
+  description : { type: String, required: true },
+  pricePerNight: {type: Number,required: true},
+  host: {hostName: String, hostId: { type: mongoose.Schema.Types.ObjectId, ref: "User" }}
 });
 
 /*

@@ -8,5 +8,5 @@ export class Room {
     createdOn: Date;
     facility: number;
     commodity: number;
-    hostId: string;
+    host: {hostName: string, hostId: string};
   }
