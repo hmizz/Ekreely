@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const uniqueValidator = require("mongoose-unique-validator");
 
-const room = mongoose.Schema({
+const roomSchema = mongoose.Schema({
   type: { type: String, required: true },
   address: { type: String, required: true },
   country: { type: String, required: true },
@@ -15,6 +15,8 @@ const room = mongoose.Schema({
   pricePerNight: {type: Number,required: true},
   host: {hostName: String, hostId: { type: mongoose.Schema.Types.ObjectId, ref: "User" }}
 });
+
+module.exports = mongoose.model('Room', roomSchema);
 
 /*
   Facilities:

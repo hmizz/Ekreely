@@ -1,29 +1,25 @@
-import { Component, OnInit } from '@angular/core';
-import { Room } from '../../../models/room.model';
-import { NgForm } from '@angular/forms';
-import { RoomAdminService } from '../../../services/admin/room-admin.service';
-import { stringify } from 'querystring';
-
-
+import { Component, OnInit } from "@angular/core";
+import { Room } from "../../../models/room.model";
+import { NgForm } from "@angular/forms";
+import { RoomAdminService } from "../../../services/admin/room-admin.service";
+import { stringify } from "querystring";
 
 @Component({
-  selector: 'app-add-room',
-  templateUrl: './add-room.component.html',
-  styleUrls: ['./add-room.component.css']
+  selector: "app-add-room",
+  templateUrl: "./add-room.component.html",
+  styleUrls: ["./add-room.component.css"],
 })
 export class AddRoomComponent implements OnInit {
+  constructor(public roomAdminService: RoomAdminService) {}
 
-  constructor(public roomAdminService: RoomAdminService) { }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onSubmitRoom(form: NgForm) {
     if (form.invalid) {
       return;
     }
     const roomForm: Room = {
-      id: '',
+      id: "",
       type: form.value.roomType,
       address: form.value.roomAddress,
       country: form.value.roomCountry,
@@ -33,14 +29,12 @@ export class AddRoomComponent implements OnInit {
       facility: form.value.roomFacility,
       commodity: form.value.roomCommodity,
       status: form.value.roomStatus,
-      host: form.value.roomHost
+      description: "",
+      pricePerNight: 0,
+      host: form.value.roomHost,
     };
 
     this.roomAdminService.addRoom(roomForm);
     form.resetForm();
   }
-
-
-
-
 }

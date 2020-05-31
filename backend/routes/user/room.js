@@ -53,7 +53,8 @@ router.post("",
   router.get('',(req,res, next) => {
     Room.find().then(documents => {
       res.status(200).json({
-        Rooms: documents
+        message: "success",
+        rooms: documents
       });
      });
    });

@@ -29,6 +29,8 @@ this.http.get<{message: string, rooms: any}>(
       facility: room.facility,
       commodity: room.commodity,
       status: room.status,
+      description: room.description,
+      pricePerNight: room.pricePerNight,
       host: room.host
     };
   });
@@ -60,6 +62,8 @@ getRoom(id: string) {
     facility: 0,
     commodity: 0,
     status: 0,
+    description: "",
+    pricePerNight: 0,
     host: {hostName:"string",hostId:"string"}};
    this.http.post<{message: string, roomId: string}>('http://localhost:3000/api/rooms', room)
    .subscribe( (ResponseData) => {
@@ -82,6 +86,8 @@ getRoom(id: string) {
     facility: 0,
     commodity: 0,
     status: 0,
+    description: "",
+    pricePerNight: 0,
     host: {hostName:"string",hostId:"string"}};
   this.http
   .put('http://localhost:3000/api/rooms/' + id, room)
