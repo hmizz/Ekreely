@@ -12,7 +12,6 @@ export class AppComponent implements OnInit {
   constructor(private authService: AuthService) {}
   [x: string]: any;
 storedPosts: Post[] = [];
-
  stAdded(post) {
   this.storedPosts.push(post);
 }

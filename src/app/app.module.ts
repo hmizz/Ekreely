@@ -82,7 +82,8 @@ import { EditRoomComponent } from './admin-panel/room-admin/edit-room/edit-room.
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
-    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}],
+    // {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent],
   entryComponents: [ErrorComponent]
 })
