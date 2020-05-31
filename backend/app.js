@@ -12,7 +12,7 @@ const app = express();
 mongoose
   .connect(
     "mongodb+srv://Admin:azerty1234@ekreely-ss2r6.mongodb.net/test?retryWrites=true&w=majority"
-  )
+    ,{ useNewUrlParser: true,useUnifiedTopology: true})
   .then(() => {
     console.log("connected to database!");
   })
