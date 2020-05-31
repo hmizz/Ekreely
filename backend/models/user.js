@@ -1,14 +1,18 @@
+// mongoose models
+
 const mongoose = require('mongoose');
-const uniqueValidator = require('mongoose-unique-validator');
+mongoose.set('useCreateIndex', true);
+const uniqueValidator = require("mongoose-unique-validator");
+
 
 const userSchema = mongoose.Schema({
-  fullName: { type: String, required: true },
-  email: { type: String, required: true, unique: true},
-  password: { type: String, required: true},
-  phoneNumber: {type: String,required: true},
-  status: { type: Number, default: 0, required: true},
-  accesslevel:{ type: Number, default: 0, required: true}
+  namee: {type: String, unique: true},
+  phoneNumber: {type: String},
+  email: { type: String, required: true, unique: true },
+  password: {type: String, required: true },
+  status: {type: Number, min:0, max : 3,default: 0},
+  accessLevel : {type: Number, min: 0, max: 3, default: 0}
+
 });
-
-module.exports = mongoose.model('User', userSchema);
-
+userSchema.plugin(uniqueValidator);
+module.exports = mongoose.model("User",userSchema);

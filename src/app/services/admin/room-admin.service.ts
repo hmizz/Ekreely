@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 import { stringify } from 'querystring';
 
 @Injectable({providedIn: 'root'})
-export class RoomService {
+export class RoomAdminService {
 
     private roomsList: Room[];
     private roomsUpdated = new Subject<Room[]>();
@@ -25,6 +25,7 @@ export class RoomService {
             return data.roomsList.map(room => {
                 return {
                     id: room._id,
+                    type: room.type,
                     address: room.address,
                     country: room.country,
                     region: room.region,
@@ -50,8 +51,9 @@ export class RoomService {
 
 
     addRoom(room: Room) {
-        const post: Room = { 
+        const postedRoom: Room = { 
             id: room.id,
+            type: room.type,
             address: room.address,
             country: room.country,
             region: room.region,
@@ -62,7 +64,7 @@ export class RoomService {
             status: room.status,
             host: room.host
         };
-        this.http.post<{message: string, roomID: string}>('http://localhost:3000/api/admin/room', post)
+        this.http.post<{message: string, roomID: string}>('http://localhost:3000/api/admin/room', postedRoom)
             .subscribe((responseData) => {
                 console.log(responseData);
                 const id = responseData.roomID;
