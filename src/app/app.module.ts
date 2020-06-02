@@ -26,7 +26,7 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { AuthInterceptor } from './auth/auth-interceptor';
 import { ErrorInterceptor } from './error/error-interceptor';
 import { ErrorComponent} from './error/Error.Component';
-import { HomeComponent } from './home/home.comoponent';
+import { HomeComponent } from './home/home.component';
 import { MatIconModule } from '@angular/material/icon';
 import { LayoutModule } from '@angular/cdk/layout';
 import { FooterComponent } from './footer/footer.component';

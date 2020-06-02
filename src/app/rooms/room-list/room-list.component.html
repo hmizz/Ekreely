@@ -112,9 +112,7 @@
         <div class="card" *ngFor="let room of rooms" >
           <div class="card-header" >
             {{ room.type }}   
-              <div class="topic">
-                {{room.host.hostName}}
-               
+              <div class="topic">               
               </div>
                 <div class="publisher">
                 {{room.region}}
@@ -125,10 +123,6 @@
             <p class="card-text">{{ room.adress }}</p>
             
           </div>
-        
-        <div class="alert alert-info" role="alert"  style="height: 40px;">
-          There is no Room for according to your choices. <a routerLink="/" class="alert-link">Search Again.</a>
-        </div>
       </div>
       </div>
     </div>

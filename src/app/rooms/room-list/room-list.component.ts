@@ -17,7 +17,6 @@ export class RoomListComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.isLoading= true ;
-    this.roomsService.getRooms();
     this.roomsSub = this.roomsService.getRoomUpdateListener()
     .subscribe((rooms: Room[]) => {
       this.isLoading = false;

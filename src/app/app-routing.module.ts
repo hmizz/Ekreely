@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { AuthGuard } from './auth/auth.guard';
-import { HomeComponent } from './home/home.comoponent';
+import { HomeComponent } from './home/home.component';
 import { RoomCreateComponent } from './rooms/room-create/room-create.component';
 import { RoomListComponent } from './rooms/room-list/room-list.component';
 import { ProfileComponent } from './userPanel/profile/profile.component';
