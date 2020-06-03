@@ -6,24 +6,16 @@ const authenticator = require('../../../middleware/authenticator');
 const DBUser = require('../../../models/user');
 
 
-router.put('/edit/:id', authenticator, (req, res, next) => {
+router.put('/edit/:id', (req, res, next) => {
     const newUser = new DBUser({
         _id: req.body.id,
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        emailAddress: req.body.emailAddress,
-        gender: req.body.gender,
-        dateOfBirth: req.body.dateOfBirth,
-        address: req.body.address,
-        country: req.body.country,
-        region: req.body.region,
-        zipCode: req.body.zipCode,
-        createdOn: req.body.createdOn,
-        modifiedOn: req.body.modifiedOn,
-        lastAccessed: req.body.lastAccessed,
-        status: req.body.status
+        fullName: req.body.fullName,
+        phoneNumber: req.body.phoneNumber,
+        email: req.body.email,
+        status: req.body.status,
+        accessLevel: req.body.accessLevel
     });
-    dbArticle.updateOne({_id: req.params.id}, newUser).then( result => {
+    DBUser.updateOne({_id: req.params.id}, newUser).then( result => {
       console.log(result, newUser);
       res.status(200).json({ message: 'Update successful',
         newUser});
@@ -32,7 +24,7 @@ router.put('/edit/:id', authenticator, (req, res, next) => {
   
 
   router.get('', (req, res, next) => {
-    dbArticle.find().then(data => {
+    DBUser.find().then(data => {
       res.status(200).json({
         userList: data
       })

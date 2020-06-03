@@ -9,6 +9,7 @@ import { RoomListComponent } from './rooms/room-list/room-list.component';
 import { ProfileComponent } from './userPanel/profile/profile.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { MyRoomsComponent } from './userPanel/my-rooms/my-rooms.component';
+import { EditRoomComponent } from './admin-panel/room-admin/edit-room/edit-room.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'rooms', component: RoomListComponent},
   { path: 'profile', component: ProfileComponent},
   { path: 'admin', component: AdminPanelComponent},
+  { path: 'admin/edit/:roomID', component: EditRoomComponent},
   { path: 'myrooms', component: MyRoomsComponent}
 ];
 

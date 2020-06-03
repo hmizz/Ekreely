@@ -21,6 +21,8 @@ export class RoomsService {
         map((roomData) => {
           return roomData.rooms.map((room) => {
             return {
+              id: room._id,
+              title: room.title,
               type: room.type,
               address: room.address,
               country: room.country,
@@ -85,6 +87,8 @@ export class RoomsService {
         this.roomsUpdated.next([...this.rooms]);
       });
   }
+  /* OLD METHOD 
+  
   getRoom(id: string) {
     return this.http.get<{
       _id: string;
@@ -93,15 +97,37 @@ export class RoomsService {
       creator: string;
     }>("http://localhost:3000/api/rooms/" + id);
   }
+  */
 
+  getRoom(id: string) {
+  this.getRooms();
+  return {...this.rooms.find( (p) => p.id === id  )};
+}
   addRoom(room: Room) {
-  
+    const post: Room = {
+      id: room.id,
+      title: room.title,
+      type: room.type,
+      address: room.address,
+      country: room.country,
+      region: room.region,
+      zipCode: room.zipCode,
+      facility: room.facility,
+      commodity: room.commodity,
+      status: room.status,
+      description: room.description,
+      pricePerNight: room.pricePerNight,
+      capacity: room.capacity,
+      createdOn: room.createdOn, 
+      host: null,
+    }
     this.http
       .post<{ message: string; roomId: string }>(
         "http://localhost:3000/api/rooms",
-        room
+        post
       )
       .subscribe((ResponseData) => {
+        console.log(ResponseData);
         const id = ResponseData.roomId;
         room.id = id;
         this.rooms.push(room);
@@ -187,5 +213,33 @@ export class RoomsService {
   getRoomsArray(){
     return this.rooms ;
   }
+
+
+  editRoom(room: Room) {
+    
+    const post: Room = {
+      id: room.id,
+      title: room.title,
+      type: room.type,
+      address: room.address,
+      country: room.country,
+      region: room.region,
+      zipCode: room.zipCode,
+      facility: room.facility,
+      commodity: room.commodity,
+      status: room.status,
+      description: room.description,
+      pricePerNight: room.pricePerNight,
+      capacity: room.capacity,
+      createdOn: room.createdOn, 
+      host: null,
+    }
+    this.http.put('http://localhost:3000/api/rooms/edit/' + post.id, post)
+      .subscribe(response => console.log(response));
+
+  }
+
+
+
 }
 

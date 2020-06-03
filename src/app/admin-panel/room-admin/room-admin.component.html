@@ -5,7 +5,7 @@
       <h6 class="h6 text-center">Rooms list:</h6>
       <ul class="list-group">
         <li class="list-group-item list-group-item-action mb-auto" *ngFor="let room of roomsList" (click)="onSelect(room)">
-          {{room.address}}
+          {{room.title}}
         </li>
       </ul>
       <br>
@@ -20,10 +20,22 @@
     <div class="col-8">
       <div id="wide" *ngIf="selectedRoom; else noSelection">
         <div>
-          <p class="mb-1">id: {{selectedRoom.id}}</p>
-          <p class="mb-1">title: {{selectedRoom.type}}</p>
-          <p class="mb-1" id="roomAddress">{{selectedRoom.address}}</p>
+          
+          <p class="mb-1">ID: {{selectedRoom.id}}</p>
+          <p class="mb-1">Title: {{selectedRoom.title}}</p>
+          <p class="mb-1">Type: {{selectedRoom.type}}</p>
+          <p class="mb-1">Country: {{selectedRoom.country}}</p>
+          <p class="mb-1">Region: {{selectedRoom.region}}</p>
+          <p class="mb-1">Address: {{selectedRoom.address}}</p>
+          <p class="mb-1">zipCode: {{selectedRoom.zipCode}}</p>
+          <p class="mb-1">Created on: {{selectedRoom.createdOn}}</p>
+          <p class="mb-1">description: {{selectedRoom.description}}</p>
+          <p class="mb-1">Price/Night: {{selectedRoom.pricePerNight}}</p>
+          <p class="mb-1">Capacity: {{selectedRoom.capacity}}</p>
           <div class="row">
+
+
+            
             <button [routerLink]="['/admin/edit', selectedRoom.id]" type="button" class="btn btn-warning">Edit</button>
             <button (click)="onDelete(selectedRoom.id)" type="button" class="btn btn-danger">Delete</button>
           </div>

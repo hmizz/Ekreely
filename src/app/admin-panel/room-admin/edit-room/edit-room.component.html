@@ -1,1 +1,80 @@
-<p>edit-room works!</p>
+<div class="container-xl bg-light rounded justify-content-center">
+
+    <form (submit)="onSaveRoom(roomForm)" #roomForm="ngForm">
+        <div class="form-group">
+            <label for="title">Room Title:</label><br>
+            <input id="title" name="roomTitle" type="text"
+                   class="form-control col-10" required [ngModel]="selectedRoom.title" ngModel>
+          </div>
+          <div class="form-group">
+            <label for="type">Room Type:</label><br>
+            <input id="type" name="roomType" type="text"
+                   class="form-control col-10" required [ngModel]="selectedRoom.type" ngModel>
+          </div>
+          <div class="form-group">
+            <label for="address">Room Address:</label><br>
+            <input id="address" name="roomAddress" type="text"
+                   class="form-control col-10" required [ngModel]="selectedRoom.address" ngModel>
+          </div>
+          <div class="form-group">
+            <label for="country">Room Country:</label><br>
+            <input id="country" name="roomCountry" type="text"
+                   class="form-control col-10" required [ngModel]="selectedRoom.country" ngModel>
+          </div>
+          <div class="form-group">
+            <label for="region">Room Region:</label><br>
+            <input id="region" name="roomReion" type="text"
+                   class="form-control col-10" required [ngModel]="selectedRoom.region" ngModel>
+          </div>
+          <div class="form-group">
+            <label for="zipCode">Room Title:</label><br>
+            <input id="zipCode" name="roomZipCode" type="text"
+                   class="form-control col-10" required [ngModel]="selectedRoom.zipCode" ngModel>
+          </div>
+          <div class="form-group">
+            <label for="facility">Room Facilities:</label><br>
+            <input id="facility" name="roomFacility" type="text"
+                   class="form-control col-10" required [ngModel]="selectedRoom.facility" ngModel>
+          </div>
+      
+          <div class="form-group">
+            <label for="commodity">Room Commodities:</label><br>
+            <input id="commodity" name="roomCommodity" type="text"
+                   class="form-control col-10" required [ngModel]="selectedRoom.commodity" ngModel>
+          </div>
+
+          <div class="form-group">
+            <label for="status">Room Status:</label><br>
+            <input id="status" name="roomStatus" type="text"
+                   class="form-control col-10" required [ngModel]="selectedRoom.status" ngModel>
+          </div>
+          <div class="form-group">
+            <label for="description">Room Description:</label><br>
+            <input id="description" name="roomDescription" type="text"
+                   class="form-control col-10" required [ngModel]="selectedRoom.description" ngModel>
+          </div>
+          <div class="form-group">
+            <label for="ppn">Room Price/Night:</label><br>
+            <input id="ppn" name="roomPrice" type="text"
+                   class="form-control col-10" required [ngModel]="selectedRoom.pricePerNight" ngModel>
+          </div>
+          <div class="form-group">
+            <label for="capacity">Room Capacity:</label><br>
+            <input id="capacity" name="roomCapacity" type="text"
+                   class="form-control col-10" required [ngModel]="selectedRoom.capacity" ngModel>
+          </div>
+          
+                  
+          
+                              
+
+
+      <button class="btn btn-default" type="submit">Submit</button>
+      <br>
+    </form>
+  
+  
+  
+  
+  </div>
+  

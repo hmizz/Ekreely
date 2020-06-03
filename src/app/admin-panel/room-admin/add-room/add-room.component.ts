@@ -1,8 +1,7 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, SystemJsNgModuleLoader } from "@angular/core";
 import { Room } from "../../../models/room.model";
 import { NgForm } from "@angular/forms";
-import { RoomAdminService } from "../../../services/admin/room-admin.service";
-import { stringify } from "querystring";
+import { RoomsService } from "../../../services/rooms.service";
 
 @Component({
   selector: "app-add-room",
@@ -10,7 +9,9 @@ import { stringify } from "querystring";
   styleUrls: ["./add-room.component.css"],
 })
 export class AddRoomComponent implements OnInit {
-  constructor(public roomAdminService: RoomAdminService) {}
+
+
+  constructor(public roomsService: RoomsService) {}
 
   ngOnInit(): void {}
 
@@ -18,25 +19,29 @@ export class AddRoomComponent implements OnInit {
     if (form.invalid) {
       return;
     }
+    const date = new Date();
+    console.log(form.value.roomRegion);
     const roomForm: Room = {
       id: "",
-      title:"",
+      title: form.value.roomTitle,
       type: form.value.roomType,
       address: form.value.roomAddress,
       country: form.value.roomCountry,
       region: form.value.roomRegion,
       zipCode: form.value.roomZipCode,
-      createdOn: form.value.roomCreatedOn,
       facility: form.value.roomFacility,
       commodity: form.value.roomCommodity,
       status: form.value.roomStatus,
-      description: "",
-      pricePerNight: 0,
-      capacity: 0,
-      host: form.value.roomHost,
+      description: form.value.roomDescription,
+      pricePerNight: form.value.roomPrice,
+      capacity: form.value.roomCapacity,
+      createdOn: date, 
+      host: null,
+      
+
     };
 
-    this.roomAdminService.addRoom(roomForm);
-    form.resetForm();
+    this.roomsService.addRoom(roomForm);
+    
   }
 }

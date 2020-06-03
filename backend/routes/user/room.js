@@ -5,20 +5,24 @@ const checkAuth = require("../../middleware/authenticator");
 
 const router = express.Router();
 
-router.post("",(req, res, next) => {
+router.post('',(req, res, next) => {
+    const thisDate = new Date();
     const room = new Room({
-      type: "string",
-      address: "string",
-      country: "string",
-      region: "string",
-      zipCode: "string",
-      createdOn: new Date(),
-      facility: 0,
-      commodity: 0,
-      status: 0,
-      description: "jnjnnj",
-      pricePerNight: 0,
-      capacity: 2,
+      title: req.body.title,
+      type: req.body.type,
+      country: req.body.country,
+      region: req.body.region,
+      address: req.body.address,
+      zipCode: req.body.zipCode,
+      createdOn: req.body.createdOn,
+      description: req.body.description,
+      facility: req.body.facility,
+      commodity: req.body.commodity,
+      capacity: req.body.capacity,
+      pricePerNight: req.body.pricePerNight,
+      status: req.body.status,
+      verified: true,
+      host: null,
     });
     room
       .save()
@@ -29,6 +33,7 @@ router.post("",(req, res, next) => {
         });
       })
       .catch((error) => {
+        console.log(error);
         res.status(500).json({
           message: "creating a Room failed",
         });
@@ -58,6 +63,37 @@ router.put("/:id", checkAuth, (req, res, next) => {
       });
     });
 });
+
+router.put('/edit/:id', (req, res, next) => {
+  const newRoom = new Room({
+    _id: req.body.id,
+    title: req.body.title,
+    type: req.body.type,
+    country: req.body.country,
+    region: req.body.region,
+    address: req.body.address,
+    zipCode: req.body.zipCode,
+    createdOn: req.body.createdOn,
+    description: req.body.description,
+    facility: req.body.facility,
+    commodity: req.body.commodity,
+    capacity: req.body.capacity,
+    pricePerNight: req.body.pricePerNight,
+    status: req.body.status,
+    verified: true,
+    host: null,
+  });
+  Room.updateOne({_id: req.params.id}, newRoom).then( result => {
+    console.log(result, newRoom);
+    res.status(200).json({ message: 'Update successful',
+      newRoom});
+  })
+});
+
+
+
+
+
 // ('')
 router.get("", (req, res, next) => {
   Room.find().then((documents) => {

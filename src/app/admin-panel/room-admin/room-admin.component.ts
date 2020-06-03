@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Room } from '../../models/room.model';
 import { RoomAdminService } from '../../services/admin/room-admin.service';
+import { RoomsService } from '../../services/rooms.service'
 import { Subscription } from 'rxjs';
 
 
@@ -16,11 +17,11 @@ export class RoomAdminComponent implements OnInit {
   roomsList: Room[];
   public selectedRoom: Room;
 
-  constructor(public roomAdminService: RoomAdminService) { }
+  constructor(public roomsService: RoomsService) { }
 
   ngOnInit(): void {
-    this.roomAdminService.getRoomsList();
-    this.roomSub = this.roomAdminService.getRoomsUpdateListener()
+    this.roomsService.getRooms();
+    this.roomSub = this.roomsService.getRoomUpdateListener()
       .subscribe((roomsList: Room[]) => {
         this.roomsList = roomsList;
       });
@@ -36,7 +37,7 @@ export class RoomAdminComponent implements OnInit {
   }
 
   onDelete(id: string) {
-    this.roomAdminService.deleteRoom(id);
+    this.roomsService.deleteRoom(id);
   }
 
 }
