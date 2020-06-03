@@ -1,5 +1,6 @@
 export class Room {
   id: string;
+  title: string;
   type: string;
   address: string;
   country: string;
@@ -11,5 +12,6 @@ export class Room {
   status: number;
   description: string;
   pricePerNight: number;
+  capacity: number;
   host: { hostName: string; hostId: string };
 }

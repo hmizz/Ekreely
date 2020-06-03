@@ -6,29 +6,34 @@ const checkAuth = require("../../middleware/authenticator");
 const router = express.Router();
 
 router.post("",(req, res, next) => {
+  console.log(req.body);
     const room = new Room({
-      type: "string",
-      address: "string",
-      country: "string",
-      region: "string",
-      zipCode: "string",
+      title:req.body.title,
+      type: req.body.type,
+      address: req.body.address,
+      country: "Tunisia",
+      region: req.body.region,
+      zipCode: "null",
       createdOn: new Date(),
       facility: 0,
       commodity: 0,
       status: 0,
-      description: "jnjnnj",
-      pricePerNight: 0,
-      capacity: 2,
+      description: req.body.description,
+      pricePerNight: req.body.pricePerNight,
+      capacity: req.body.capacity,
+      host: null
     });
-    room
-      .save()
+    room.save()
       .then((createdRoom) => {
+        console.log(createdRoom);
         res.status(201).json({
           message: "Room added successfully ",
           roomId: createdRoom._id,
+          
         });
       })
       .catch((error) => {
+        console.log(error);
         res.status(500).json({
           message: "creating a Room failed",
         });
@@ -78,13 +83,13 @@ router.get("/myrooms/:id", (req, res, next) => {
 
 router.patch("", (req, res, next) => {
   Room.find({
-    region: req.body.city,
-    capacity: { $gte: req.body.capacity },
+    region: req.body.region
   }).then((documents) => {
     res.status(200).json({
       message: "success",
       rooms: documents,
     });
+    console.log(documents);
   });
 });
 // (/:id)

@@ -5,6 +5,7 @@ const reservationSchema = mongoose.Schema({
   startDate: { type: Date, required: true},
   endDate: { type: Date, required: true},
   status: { type: Number, default: 0},
+  accepted: {type: Boolean, default: false},
   userId: {type: mongoose.Schema.Types.ObjectId, ref: "User"} 
 });
 

@@ -5,7 +5,7 @@ const roomSchema = mongoose.Schema({
   title: {type: String, required: true},
   type: { type: String, required: true },
   address: { type: String, required: true },
-  country: { type: String, required: true },
+  country: { type: String},
   region: { type: String, required: true },
   zipCode: { type: String},
   createdOn: { type: Date, required: true },
@@ -26,7 +26,6 @@ module.exports = mongoose.model("Room", roomSchema);
 
 /*
   Facilities:
-
   1: Eau courante
   2: transports en commun
   4: Climatisation

@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { NgForm } from "@angular/forms";
 import { RoomsService } from "../services/rooms.service";
+import { Router } from '@angular/router';
 
 @Component({
   selector: "app-home-cart",
@@ -14,7 +15,7 @@ export class HomeComponent implements OnInit {
   endDate: Date;
   dateStatus = true;
   currentDate: Date;
-  constructor(public roomsService: RoomsService) {}
+  constructor(public roomsService: RoomsService,public router: Router) {}
 
   ngOnInit(): void {
     this.currentDate = new Date();
@@ -32,7 +33,9 @@ export class HomeComponent implements OnInit {
     } else {
       this.dateStatus = true;
     }
-
+    this.router.navigate(['/rooms']);
+    this.roomsService.searchRooms(form.value.region,startDate, startDate, form.value.capacity);
     form.resetForm();
+    
   }
 }

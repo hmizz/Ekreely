@@ -38,16 +38,14 @@
                         >Where you going?</label
                       >
                       <div class="col-12">
-                        <input
-                        id="validationTooltipUsername"
-                          name="city"
-                          [ngModel]
-                          placeholder="City"
-                          class="form-control"
-                          required
-                          type="text"
-                          #city="ngModel"
-                        />
+                        <select class="form-control" [ngModel] name="region" placeholder="Region" id="exampleFormControlSelect1"type="text"
+                        #region="ngModel">
+                          <option>Tunis</option>
+                          <option>Nabeul</option>
+                          <option>Sousse</option>
+                          <option>Mednine</option>
+                          <option>Bizerte</option>
+                        </select>
                       </div>
                     </div>
                   </div>
