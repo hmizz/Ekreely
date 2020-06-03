@@ -1,1 +1,151 @@
-<p>room-create works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <form (submit)="onSubmitRoom(roomForm)" #roomForm="ngForm">
+        <div class="form-group">
+          <label for="title">Title:</label><br />
+          <input
+            id="title"
+            name="title"
+            type="text"
+            class="form-control col-10"
+            required
+            ngModel
+            #title
+          />
+          <div class="invalid-feedback">
+            Please choose a title.
+          </div>
+          <label for="type">Type:</label><br />
+          <div class="col-12">
+            <select class="form-control" [ngModel] name="type" placeholder="type of Acommodation" type="text"
+            #type="ngModel">
+              <option value="Apartments">Apartment</option>
+              <option value="Villas">Villa</option>
+              <option value="Hotels">Hotel</option>
+              <option value="Condos">Condo</option>
+            </select>
+          </div>
+          <div class="invalid-feedback">
+            Please choose a type.
+          </div>
+          <label for="address">Address:</label><br />
+          <input
+            id="address"
+            name="address"
+            type="text"
+            class="form-control col-10"
+            required
+            ngModel
+            #adress
+          />
+          <div class="invalid-feedback">
+            Please choose an address.
+          </div>
+
+          <label for="region">Region:</label><br />
+          <div class="col-10">
+            <select
+              class="form-control"
+              name="region"
+              [ngModel]
+              placeholder="Region"
+              type="text"
+              #region="ngModel"
+            >
+              <option value="Tunis">Tunis</option>
+              <option value="Nabeul">Nabeul</option>
+              <option value="Sousse">Sousse</option>
+              <option value="Mednine">Mednine</option>
+              <option value="Bizerte">Bizerte</option>
+            </select>
+          </div>
+          <div class="invalid-feedback">
+            Please choose a region.
+          </div>
+
+          <label for="facility">Facility:</label><br />
+          <div class="col-10">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value="1"
+                ngModel #facility="ngModel"
+              />
+              <label class="form-check-label" for="defaultCheck1">
+                Air-conditioning
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value="2"
+                ngModel
+              />
+              <label class="form-check-label" for="defaultCheck1">
+                Parking
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                ngModel
+                type="checkbox"
+                value="4"
+              />
+              <label class="form-check-label" for="defaultCheck1">
+                Garden
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                ngModel
+                type="checkbox"
+                value="8"
+              />
+              <label class="form-check-label" for="defaultCheck1">
+                Private Garage
+              </label>
+            </div>
+          </div>
+          <label for="address">capacity:</label><br />
+          <input
+            id="address"
+            name="capacity"
+            type="number"
+            class="form-control col-10"
+            required
+            ngModel
+            #capacity
+          />
+          <label for="address">Price per Night:</label><br />
+          <input
+            id="address"
+            name="pricePerNight"
+            type="number"
+            class="form-control col-10"
+            required
+            ngModel
+            #pricePerNight
+          />
+          <label for="address">description:</label><br />
+          <input
+            id="address"
+            name="description"
+            type="textarea"
+            class="form-control col-10"
+            required
+            ngModel
+            #description
+          />
+        </div>
+        <button class="btn btn-dark" type="submit">Submit</button>
+      </form>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>

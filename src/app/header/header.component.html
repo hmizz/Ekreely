@@ -50,7 +50,7 @@
         <a class="nav-link" (click)="onShowRooms();"> Rooms</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link info" href="#" tabindex="-1" aria-disabled="true"
+        <a class="nav-link info" routerLink="/create" tabindex="-1" aria-disabled="true"
           >Be a Host</a
         >
       </li>
@@ -62,7 +62,7 @@
       </a>
       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
         <a class="dropdown-item" routerLink="/profile">profile</a>
-        <a class="dropdown-item" href="/">My rooms</a>
+        <a class="dropdown-item" routerLink="/myrooms">My rooms</a>
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" (click)="onLogout()" >Logout</a>
       </div>

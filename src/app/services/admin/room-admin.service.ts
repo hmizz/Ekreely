@@ -35,6 +35,7 @@ export class RoomAdminService {
               status: room.status,
               description: room.description,
               pricePerNight: room.pricePerNight,
+              capacity: room.capacity,
               host: room.host,
             };
           });
@@ -53,6 +54,7 @@ export class RoomAdminService {
   addRoom(room: Room) {
     const postedRoom: Room = {
       id: room.id,
+      title: "",
       type: room.type,
       address: room.address,
       country: room.country,
@@ -64,6 +66,7 @@ export class RoomAdminService {
       status: room.status,
       description: "",
       pricePerNight: 0,
+      capacity: 0,
       host: room.host,
     };
     this.http

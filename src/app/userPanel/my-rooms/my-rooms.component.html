@@ -1,1 +1,50 @@
-<p>my-rooms works!</p>
+<div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="list-group">
+          <ul class="list-group list-group" id="list-tab" role="tablist">
+            <button *ngFor="let room of myrooms"
+              class="list-group-item list-group-item-action"
+              [class.active]="tab == 'tab'"
+              (click)="getRoom(room.id)"
+              role="tab"
+            >
+              <a>{{room.title}}</a>
+            </button>
+          </ul>
+        </div>
+      </div>
+      <!-- <div
+        class="alert alert-info"
+        role="alert"
+        style="height: 40px;"
+      >
+        This Topic is empty.
+        <a class="alert-link">See all rooms</a
+        >. Give it a click if you like.
+      </div> -->
+      <div class="col-md-9">
+        <div class="card">
+          <div class="card-header">
+            {{ room.title }}
+            
+            <div class="region">
+              {{ room.region }}
+            </div>
+          </div>
+          <div class="card-body">
+            <p class="card-text">{{ room.description }}</p>
+            <p class="card-text">
+              {{ room.pricePerNight }}
+            </p>
+            <p class="card-text">
+                {{ room.capacity }}
+              </p>
+              <!-- <button (click)="onDelete(room.id)" class="btn btn-danger">
+                DELETE
+              </button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

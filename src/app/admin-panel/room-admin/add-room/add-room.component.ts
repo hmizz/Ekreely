@@ -20,6 +20,7 @@ export class AddRoomComponent implements OnInit {
     }
     const roomForm: Room = {
       id: "",
+      title:"",
       type: form.value.roomType,
       address: form.value.roomAddress,
       country: form.value.roomCountry,
@@ -31,6 +32,7 @@ export class AddRoomComponent implements OnInit {
       status: form.value.roomStatus,
       description: "",
       pricePerNight: 0,
+      capacity: 0,
       host: form.value.roomHost,
     };
 

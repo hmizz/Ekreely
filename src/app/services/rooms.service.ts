@@ -32,6 +32,7 @@ export class RoomsService {
               status: room.status,
               description: room.description,
               pricePerNight: room.pricePerNight,
+              capacity:room.capacity,
               host: null,
             };
           });
@@ -40,7 +41,6 @@ export class RoomsService {
       .subscribe((transformedrooms) => {
         this.rooms = transformedrooms;
         this.roomsUpdated.next([...this.rooms]);
-        this.router.navigate(['/rooms']);
       });
   }
 
@@ -53,7 +53,7 @@ export class RoomsService {
       .patch<{ message: string; rooms: any }>(
         "http://localhost:3000/api/rooms",
         {
-          city: city,
+          region: city,
           starDate: startDate,
           endDate: endDate,
           capacity: capacity,
@@ -74,7 +74,8 @@ export class RoomsService {
               status: room.status,
               description: room.description,
               pricePerNight: room.pricePerNight,
-              host: room.host,
+              capacity: room.capacity,
+              host: null,
             };
           });
         })
@@ -82,7 +83,6 @@ export class RoomsService {
       .subscribe((transformedrooms) => {
         this.rooms = transformedrooms;
         this.roomsUpdated.next([...this.rooms]);
-        this.router.navigate(['/rooms']);
       });
   }
   getRoom(id: string) {
@@ -94,22 +94,8 @@ export class RoomsService {
     }>("http://localhost:3000/api/rooms/" + id);
   }
 
-  addRoom(title: string, content: string, creator: string) {
-    const room: Room = {
-      id: "string",
-      type: "string",
-      address: "string",
-      country: "string",
-      region: "string",
-      zipCode: "string",
-      createdOn: new Date(),
-      facility: 0,
-      commodity: 0,
-      status: 0,
-      description: "",
-      pricePerNight: 0,
-      host: { hostName: "string", hostId: "string" },
-    };
+  addRoom(room: Room) {
+  
     this.http
       .post<{ message: string; roomId: string }>(
         "http://localhost:3000/api/rooms",
@@ -133,6 +119,7 @@ export class RoomsService {
         return roomData.rooms.map((room) => {
           return {
             type: room.type,
+            title: room.title,
             address: room.address,
             country: room.country,
             region: room.region,
@@ -143,6 +130,7 @@ export class RoomsService {
             status: room.status,
             description: room.description,
             pricePerNight: room.pricePerNight,
+            capacity: room.capacity,
             host: {hostName: room.hostName, hostId: room.hostId},
           };
         });
@@ -150,13 +138,17 @@ export class RoomsService {
     )
     .subscribe((transformedrooms) => {
       this.myRooms = transformedrooms;
-      this.myRoomsUpdated.next([...this.rooms]);
+      this.myRoomsUpdated.next([...this.myRooms]);
     });
     console.log(this.myRooms);
+  }
+  getMyRoomsListener(){
+    return this.myRoomsUpdated.asObservable();
   }
   updateRoom(id: string, title: string, content: string, creator = null) {
     const room: Room = {
       id: "string",
+      title: "",
       type: "string",
       address: "string",
       country: "string",
@@ -168,6 +160,7 @@ export class RoomsService {
       status: 0,
       description: "",
       pricePerNight: 0,
+      capacity: 0,
       host: { hostName: "string", hostId: "string" },
     };
     this.http
@@ -195,3 +188,4 @@ export class RoomsService {
     return this.rooms ;
   }
 }
+

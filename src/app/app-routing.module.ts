@@ -8,6 +8,7 @@ import { RoomCreateComponent } from './rooms/room-create/room-create.component';
 import { RoomListComponent } from './rooms/room-list/room-list.component';
 import { ProfileComponent } from './userPanel/profile/profile.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
+import { MyRoomsComponent } from './userPanel/my-rooms/my-rooms.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -17,7 +18,8 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent},
   { path: 'rooms', component: RoomListComponent},
   { path: 'profile', component: ProfileComponent},
-  { path: 'admin', component: AdminPanelComponent}
+  { path: 'admin', component: AdminPanelComponent},
+  { path: 'myrooms', component: MyRoomsComponent}
 ];
 
 @NgModule({
