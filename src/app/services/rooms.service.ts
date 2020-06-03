@@ -191,4 +191,7 @@ export class RoomsService {
         this.roomsUpdated.next([...this.rooms]);
       });
   }
+  getRoomsArray(){
+    return this.rooms ;
+  }
 }

@@ -4,10 +4,10 @@
       <div class="card">
         <article class="card-group-item">
           <header class="card-header">
-            <h6 class="title">Range input </h6>
+            <h6 class="title">Price </h6>
           </header>
           <div class="filter-content">
-            <div class="card-body">
+            <div class="Price card-body">
             <div class="form-row">
             <div class="form-group col-md-6">
               <label>Min</label>
@@ -22,84 +22,93 @@
           </div>
         </article>
         <article class="card-group-item">
-          <header class="card-header">
-            <h6 class="title">Brands </h6>
+          <header class=" place card-header">
+            <h6 class="title">Type of place </h6>
           </header>
           <div class="filter-content">
-            <div class="card-body">
-            <form>
+            <div class="Place card-body">
+              
               <label class="form-check">
-                <input class="form-check-input" type="checkbox" value="">
-                <span class="form-check-label">
-                  Mersedes Benz
-                </span>
+                <input class="form-check-input" type="checkbox" value="0" [(ngModel)]="filter.Apartments" (ngModelChange)="filterType()" >
+                
+                  Apartments
+               
               </label> <!-- form-check.// -->
+          
               <label class="form-check">
-                <input class="form-check-input" type="checkbox" value="">
+                <input class="form-check-input" type="checkbox" value="0" [(ngModel)]="filter.Villas" (ngModelChange)="filterType()">
                 <span class="form-check-label">
-                  Nissan Altima
+                  Villas
                 </span>
               </label>  <!-- form-check.// -->
               <label class="form-check">
-                <input class="form-check-input" type="checkbox" value="">
+                <input class="form-check-input" type="checkbox" value="0" [(ngModel)]="filter.Condos" (ngModelChange)="filterType()">
                 <span class="form-check-label">
-                  Another Brand
+                  Condos
                 </span>
               </label>
               <label class="form-check">
-                <input class="form-check-input" type="checkbox" value="">
+                <input class="form-check-input" type="checkbox" value="0" [(ngModel)]="filter.Hotels" (ngModelChange)="filterType()">
                 <span class="form-check-label">
-                  Mersedes Benz
+                  Hotels
                 </span>
               </label>
               <label class="form-check">
-                <input class="form-check-input" type="checkbox" value="">
-                <span class="form-check-label">
-                  Nissan Altima
+                <input class="form-check-input" type="checkbox"  [(ngModel)]="filter.ShowAll" (change)="selectAll();" >
+                <span class="form-check-label" >
+                  Show all
                 </span>
-              </label>
-              <label class="form-check">
-                <input class="form-check-input" type="checkbox" value="">
-                <span class="form-check-label">
-                  Another Brand
-                </span>
-              </label>
-              <label class="form-check">
-                <input class="form-check-input" type="checkbox" value="">
-                <span class="form-check-label">
-                  Appartments
-                </span>
-              </label>  <!-- form-check.// -->
-            </form>
+              </label> 
+              
+
       
             </div> <!-- card-body.// -->
           </div>
         </article> <!-- card-group-item.// -->
         
         <article class="card-group-item">
-          <header class="card-header">
-            <h6 class="title">Choose type </h6>
+          <header class="Rooms card-header">
+            <h6 class="title">Rooms </h6>
           </header>
           <div class="filter-content">
-            <div class="card-body">
-            <label class="form-check">
-              <input class="form-check-input" type="radio" name="exampleRadio" value="">
-              <span class="form-check-label">
-                First hand items
-              </span>
-            </label>
-            <label class="form-check">
-              <input class="form-check-input" type="radio" name="exampleRadio" value="">
-              <span class="form-check-label">
-                Brand new items
-              </span>
-            </label>
-            <label class="form-check">
-              <input class="form-check-input" type="radio" name="exampleRadio" value="">
-              <span class="form-check-label">
-                Some other option
-              </span>
-            </label>
+            <div class="Rooms card-body">
+             
+              <label class="form-check">
+                <input class="form-check-input" type="radio"  [(ngModel)]="filter1.Tunis" value="0"  (ngModelChange)="filterDate('Tunis')" checked>
+                <span class="form-check-label" id="Radios1">
+                  Tunis
+                </span>
+              </label> 
+              <label class="form-check">
+                <input class="form-check-input" id="Radios2" type="radio" [(ngModel)]="filter1.Nabeul" value="1"   (ngModelChange)="filterDate('Nabeul')">
+                <span class="form-check-label" id="Radios2">
+                  Nabeul
+                </span>
+              </label> 
+              <label class="form-check">
+                <input class="form-check-input"  type="radio" [(ngModel)]="filter1.Sousse" value="2"   (ngModelChange)="filterDate('Sousse')">
+                <span class="form-check-label" >
+                  Sousse
+                </span>
+              </label> 
+              <label class="form-check">
+                <input class="form-check-input"  type="radio" [(ngModel)]="filter1.Bizert" value="3"   (ngModelChange)="filterDate('Bizert')">
+                <span class="form-check-label" >
+                 Bizerte
+                </span>
+              </label> 
+              <label class="form-check">
+                <input class="form-check-input"  type="radio" [(ngModel)]="filter1.Mednine" value="4"   (ngModelChange)="filterDate('Mednine')">
+                <span class="form-check-label" >
+                  Mednine
+                </span>
+              </label> 
+              <label class="form-check">
+                <input class="form-check-input"  type="radio" [(ngModel)]="filter1.Mahdia" value="5"   (ngModelChange)="filterDate('Mahdia')">
+                <span class="form-check-label" >
+                  Mahdia
+                </span>
+              </label> 
             </div> <!-- card-body.// -->
           </div>
         </article> <!-- card-group-item.// -->
@@ -109,20 +118,33 @@
         <div class="alert alert-info" role="alert" *ngIf="message"  style="height: 40px;">
           There is no Room for according to your choices. <a routerLink="/" class="alert-link">Search Again.</a>
         </div>
-        <div class="card" *ngFor="let room of rooms" >
+        <div class="card " *ngFor="let room of rooms" >
           <div class="card-header" >
-            {{ room.type }}   
-              <div class="topic">               
-              </div>
-                <div class="publisher">
+           <div>
+             {{room.title}}
+           </div>
+           <div>
+            {{ room.type }} 
+           </div>
+              <hr>
+              
+                <div class="region">
                 {{room.region}}
                
                 </div>
           </div>
           <div class="card-body">
             <p class="card-text">{{ room.adress }}</p>
-            
+            <div class="description">
+              {{room.description}}
+             
+              </div>
+             
+            <!--host.hostname
+            -->
           </div>
+        
+        
       </div>
       </div>
     </div>
